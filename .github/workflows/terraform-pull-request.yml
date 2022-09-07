@@ -2,11 +2,9 @@
 # source: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks
 name: "Terraform PR"
 on:
-  pull_request_target:
+  pull_request:
     branches:
       - main
-    paths-ignore:
-      - .github/workflows/terraform-pulll-request.yml
   workflow_dispatch:
 
 jobs:
@@ -14,11 +12,27 @@ jobs:
     name: "User Existence Check"
     runs-on: ubuntu-latest
     steps:
-      - run: 'echo "No build required." '
+      - run: |
+        echo "$GITHUB_ACTION" 
+        echo "$GITHUB_ACTION_PATH" 
+        echo "$GITHUB_ACTION_REPOSITORY" 
+        echo "$GITHUB_ACTIONS" 
+        echo "$GITHUB_ACTOR" 
+        echo "$GITHUB_API_URL" 
+        echo "$GITHUB_BASE_REF" 
+        echo "$GITHUB_ENV" 
+        echo "$GITHUB_EVENT_NAME" 
+        echo "$GITHUB_EVENT_PATH" 
+        echo "$GITHUB_GRAPHQL_URL" 
+        echo "$GITHUB_HEAD_REF"
+        echo "$GITHUB_JOB"
+        echo "$GITHUB_PATH"
+        echo "$GITHUB_REF"
+        echo "$GITHUB_REF_NAME"
+        echo "$GITHUB_REPOSITORY"
+        echo "$GITHUB_STEP_SUMMARY"
+        echo "$GITHUB_WORKFLOW"
+        echo "$RUNNER_ARCH"
+        echo "$RUNNER_DEBUG"
+        echo "$RUNNER_TOOL_CACHE"
 
-  terraform:
-    name: "Terraform plan"
-    needs: user-existence-check
-    runs-on: ubuntu-latest
-    steps:
-      - run: 'echo "No build required." '
