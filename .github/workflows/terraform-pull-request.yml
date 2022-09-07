@@ -15,6 +15,27 @@ jobs:
       - name: "输出默认环境变量"
         run: |
           echo "$GITHUB_ACTION"
+          echo "$GITHUB_ACTION_PATH" 
+          echo "$GITHUB_ACTION_REPOSITORY" 
+          echo "$GITHUB_ACTIONS" 
+          echo "$GITHUB_ACTOR" 
+          echo "$GITHUB_API_URL" 
+          echo "$GITHUB_BASE_REF" 
+          echo "$GITHUB_ENV" 
+          echo "$GITHUB_EVENT_NAME" 
+          echo "$GITHUB_EVENT_PATH" 
+          echo "$GITHUB_GRAPHQL_URL" 
+          echo "$GITHUB_HEAD_REF"
+          echo "$GITHUB_JOB"
+          echo "$GITHUB_PATH"
+          echo "$GITHUB_REF"
+          echo "$GITHUB_REF_NAME"
+          echo "$GITHUB_REPOSITORY"
+          echo "$GITHUB_STEP_SUMMARY"
+          echo "$GITHUB_WORKFLOW"
+          echo "$RUNNER_ARCH"
+          echo "$RUNNER_DEBUG"
+          echo "$RUNNER_TOOL_CACHE"
         
         
 
