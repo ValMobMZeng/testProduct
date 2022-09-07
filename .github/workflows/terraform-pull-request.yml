@@ -12,6 +12,7 @@ jobs:
     name: "User Existence Check"
     runs-on: ubuntu-latest
     steps:
+      - name: "输出默认环境变量"
       - run: |
         echo "$GITHUB_ACTION" 
         echo "$GITHUB_ACTION_PATH" 
