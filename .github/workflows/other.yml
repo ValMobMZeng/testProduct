@@ -1,0 +1,13 @@
+name: "reuse workflow example"
+
+on:
+  workflow_call:
+
+jobs:
+  example-job:
+    name: this is a example reuse workflow
+    runs-on: ubuntu-latest
+    steps:
+      - name: "被别的workflow调用"
+        run: |
+          echo "这是一个被调用的工作流"
