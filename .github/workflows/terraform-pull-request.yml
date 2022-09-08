@@ -19,6 +19,14 @@ jobs:
   call-workflow:
     uses: ./.github/workflows/other.yml
 
+  job-2:
+    name: "diergerenwu"
+    runs-on: ubuntu-latest
+    steps:
+      - name: "输出"
+        run: |
+          echo "output something"
+
         
         
 
