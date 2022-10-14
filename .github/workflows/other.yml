@@ -11,3 +11,7 @@ jobs:
       - name: "被别的workflow调用"
         run: |
           echo "这是一个被调用的工作流"
+
+  example-job2:
+    name: this is second job
+    runs-on: ubuntu-latest

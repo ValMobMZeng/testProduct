@@ -1,31 +1,30 @@
 # Generic workflow with the same name, that will return true in any case similar to the non generic workflow.
 # source: https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/defining-the-mergeability-of-pull-requests/troubleshooting-required-status-checks#handling-skipped-but-required-checks
-name: "Terraform PR"
+
+name: Build
 on:
   pull_request:
     branches:
       - main
   workflow_dispatch:
-
 jobs:
-  user-existence-check:
-    name: "User Existence Check"
+  build:
+    name: Build
     runs-on: ubuntu-latest
     steps:
-      - name: "输出默认环境变量"
-        run: |
-          echo "this is call function"
-          
-  call-workflow:
-    uses: ./.github/workflows/other.yml
-
-  job-2:
-    name: "diergerenwu"
-    runs-on: ubuntu-latest
-    steps:
-      - name: "输出"
-        run: |
-          echo "output something"
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - uses: sonarsource/sonarqube-scan-action@master
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+      # If you wish to fail your job when the Quality Gate is red, uncomment the
+      # following lines. This would typically be used to fail a deployment.
+      # - uses: sonarsource/sonarqube-quality-gate-action@master
+      #   timeout-minutes: 5
+      #   env:
+      #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
         
         
