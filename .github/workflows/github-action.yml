@@ -11,7 +11,7 @@ jobs:
 
       - name: "usage of env"
         run: |
-          out=$(python ./bin/increment_new_version.py)
+          out=$(python ./bin/test.py)
           echo out
         env:
           QNAME: mmiya
