@@ -12,6 +12,6 @@ jobs:
       - name: "usage of env"
         run: |
           out=$(python ./bin/test.py)
-          echo out
+          echo $out
         env:
           QNAME: mmiya
