@@ -9,6 +9,8 @@ jobs:
       - name: Set environment variable
         id: generate_name
         run: echo "filename=my_value" >> $GITHUB_OUTPUT
+      - name: change script
+        run: sed -i "5c \    print(\"hello,world\")" ./bin/test.py
       - name: run python script
         run: python ./bin/test.py
         env:
