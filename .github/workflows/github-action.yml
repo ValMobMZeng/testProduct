@@ -1,6 +1,7 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Set environment variable
