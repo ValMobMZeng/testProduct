@@ -1,17 +1,13 @@
 name: GitHub Actions Demo
 on: [push]
 jobs:
-  Explore-GitHub-Actions:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
-
-      - name: "usage of env"
-        run: |
-          out=$(python ./bin/test.py)
-          echo $out
+      - name: Set environment variable
+        id: generate_name
+        run: echo "filename=my_value" >> $GITHUB_OUTPUT
+      - name: run python script
+        run: python bin/test.py
         env:
-          QNAME: mmiya
+          QNAME: ${{ steps.generate_number.outputs.filename }}
+
