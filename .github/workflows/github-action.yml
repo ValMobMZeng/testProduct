@@ -8,7 +8,7 @@ jobs:
         id: generate_name
         run: echo "filename=my_value" >> $GITHUB_OUTPUT
       - name: run python script
-        run: python bin/test.py
+        run: python ./bin/test.py
         env:
           QNAME: ${{ steps.generate_number.outputs.filename }}
 
