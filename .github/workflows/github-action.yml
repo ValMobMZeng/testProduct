@@ -12,5 +12,5 @@ jobs:
       - name: run python script
         run: python ./bin/test.py
         env:
-          QNAME: ${{ steps.generate_number.outputs.filename }}
+          QNAME: ${{ steps.generate_name.outputs.filename }}
 
