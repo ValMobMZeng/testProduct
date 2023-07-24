@@ -12,7 +12,9 @@ jobs:
       - name: change script
         run: sed -i "5c \    print(\"hello,world\")" ./bin/test.py
       - name: run python script
-        run: python ./bin/test.py
+        run: |
+          python ./bin/test.py
+          echo ${{ env.QNAME }}
         env:
           QNAME: Q_${{ steps.generate_name.outputs.filename }}
 
